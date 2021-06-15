@@ -2,9 +2,7 @@
 
 # LearningR: practicing awesomeness :D
 
-TODO: Give a brief description of what your project is about
-
-This project...
+This is for the DDA R course. Yeayyy!
 
 # Brief description of folder and file contents
 
