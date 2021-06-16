@@ -69,3 +69,81 @@ nhanes_small %>% colnames()
 nhanes_small %>%
     select(phys_active) %>%
     rename(physically_active = phys_active)
+
+
+
+## filtering 9.10
+# filter for all females/males
+
+nhanes_small %>%
+    filter(sex == "female")
+
+nhanes_small %>%
+    filter(sex != "female")
+
+# BMI
+nhanes_small %>%
+    filter(bmi == 25)
+
+# BMI>25
+nhanes_small %>%
+    filter(bmi >= 25)
+
+# two variables, bmi and sex, and (&) or (|)
+
+nhanes_small %>%
+    filter(sex == "female" & bmi >= 25)
+
+nhanes_small %>%
+    filter(sex == "female" | bmi >= 25)
+
+
+## Arranging you dataset
+
+# arrange by age
+
+nhanes_small %>%
+    arrange(age)
+
+# arrange by sex in ascending order
+nhanes_small %>%
+    arrange(sex)
+
+# arranging by age in descending order
+
+nhanes_small %>%
+    arrange(desc(age))
+
+# arranging by more variables (sex and age)
+
+nhanes_small %>%
+    arrange(sex, age)
+
+## transform or add columns
+
+# meters
+nhanes_small %>%
+    mutate(height = height / 100)
+
+# log of the height in new column
+
+nhanes_small %>%
+    mutate(logged_height = log(height))
+
+# add more columns
+
+nhanes_small %>%
+    mutate(height = height / 100, logged_height = log(height))
+
+# add new column with conditions
+
+nhanes_small %>%
+    mutate(highly_active = if_else(phys_active_days >= 5,
+                                   "Yes", "No"))
+
+## gammer alt
+
+nhanes_update <- nhanes_small %>%
+    mutate(height = height / 100,
+           logged_height = log(height),
+           highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
