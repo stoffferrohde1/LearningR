@@ -1,0 +1,84 @@
+---
+title: "Exercise to make plots with one or two variables"
+author: "Christopher Rohde"
+date: "17/6/2021"
+output: html_document
+---
+
+
+
+# 1a. Distribution of age
+ggplot(___, aes(x = ___)) +
+    ___()
+    
+# 1b. Distribution of age of diabetes diagnosis
+ggplot(___, aes(x = ___)) +
+    ___()
+
+# 2a. Number of people who smoke now
+ggplot(___, aes(x = ___)) +
+    ___()
+
+# 2b. Number of people who are physically active
+ggplot(___, aes(x = ___)) +
+    ___()
+
+# 3a. BMI in relation to systolic blood pressure
+ggplot(___, aes(x = ___, y = ___)) +
+    ___()
+
+# 3b. BMI relation to diastolic blood pressure
+ggplot(___, aes(x = ___, y = ___)) +
+    ___()
+    
+# 4. Physically active people with or without diabetes
+ggplot(___, aes(x = ___, fill = ___)) +
+    ___(___ = ___())
+
+# 5. Poverty levels between those with or without diabetes
+ggplot(___, aes(x = ___, y = ___)) +
+    ___()
+
+# OPGAVE 11.5.1
+```{r}
+ggplot(nhanes_small, aes(x = age)) +
+    geom_histogram()
+    
+ggplot(nhanes_small, aes(x = diabetes_age)) +
+    geom_histogram()
+
+```
+
+# opgave 11.5.2
+```{r}
+ggplot(nhanes_small, aes(x = smoke_now)) +
+    geom_bar()
+
+ggplot(nhanes_small, aes(x = phys_active)) +
+    geom_bar()
+```
+
+# opgave 11.5.3
+
+```{r}
+ggplot(nhanes_small, aes(x = bp_sys_ave, y = bmi)) +
+    geom_hex()
+
+ggplot(nhanes_small, aes(x = bp_dia_ave, y = bmi)) +
+    geom_hex()
+```
+
+# opgave 11.5.4
+
+```{r}
+ggplot(nhanes_small, aes(x = diabetes, fill = phys_active)) +
+    geom_bar(position = position_dodge())
+```
+
+# opgave 11.5.5
+
+```{r}
+ggplot(nhanes_small, aes(x = diabetes, y = poverty)) +
+    geom_violin()
+```
+
