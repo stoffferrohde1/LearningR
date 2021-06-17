@@ -80,5 +80,10 @@ ggplot(nhanes_small, aes(x = diabetes, fill = phys_active)) +
 ```{r}
 ggplot(nhanes_small, aes(x = diabetes, y = poverty)) +
     geom_violin()
+
+nhanes_small %>% 
+    drop_na(diabetes) %>% 
+    ggplot(aes(x = diabetes, y = poverty)) +
+    geom_violin()
 ```
 
